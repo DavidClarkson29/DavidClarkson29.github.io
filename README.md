@@ -3,6 +3,8 @@
 
 # 设计师的个人网站 Designer Portfolio Site
 
+<a href="https://ko-fi.com/T6T817U4KZ" target="_blank" style="display:inline-block;margin:.5rem auto 1rem;" data-astro-cid-wlrjxfd7=""><img height="44" style=" border:0px;height:44px;" src="https://storage.ko-fi.com/cdn/kofi2.png?v=6" alt="Buy Me a Coffee at ko-fi.com" data-astro-cid-wlrjxfd7=""></a>
+
 ### 网站预览
 Rico's Blog:  <a href="https://ricoui.com/" target="_blank">ricoui.com</a>
 
