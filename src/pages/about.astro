@@ -4,7 +4,6 @@ import BlogPostLayout from "../layouts/BlogPostLayout.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import CallToAction from "../components/CallToAction.astro";
 import {pageTag, pageDescription,aboutTdk} from '../data/content';
-import myPortrait from "../assets/david-avatar.jpg";
 ---
 <BlogPostLayout
 	title={aboutTdk.title || ''}
@@ -22,7 +21,7 @@ import myPortrait from "../assets/david-avatar.jpg";
 			<section class="border-top" style="padding-top: 2rem;">
 				<div class="content">
 					<div>
-						<Image src={myPortrait} alt="portrait" width="88" height="88" class="portrait">
+						<img src="/assets/david-avatar.jpg" alt="portrait" width="88" height="88" class="portrait" style="border-radius: 50%;" />
 					</div>
 					<p>
 						I'm <strong style="font-size:1.2em">Baichuan Wang</strong>, A graduate student in design at Kyushu University’s Graduate School of Design, currently enrolled in the Strategic Design course, with a preference for minimal and modernist aesthetics.A graduate student in design at Kyushu University’s Graduate School of Design, currently enrolled in the Strategic Design course, with a preference for minimal and modernist aesthetics.。
