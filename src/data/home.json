@@ -11,4 +11,17 @@
     "date": "2025-11-30",
     "mark": true
   }
+  
+  {
+    "id": "2",
+    "cover": "/assets/cover/lingmu-cover.jpg",
+    "title": "LingMu (灵沐) — Concept Design of an Inspiration Notebook",
+    "desc": "An interactive UI/UX design focusing on inspiration capture and knowledge management.",
+    "url": "",
+    "detail": "/detail/lingmu",
+    "category": "web",
+    "tag": "UI/UX Design",
+    "date": "2026-03-20",
+    "mark": true
+  },
 ]
