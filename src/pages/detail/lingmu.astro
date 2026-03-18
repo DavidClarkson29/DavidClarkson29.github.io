@@ -19,7 +19,7 @@ import SectionHeader from "../../components/SectionHeader.astro";
 					<div>
 						<h3 style="margin-bottom: 0.8rem;">Strategic Shift</h3>
 						<p style="line-height: 1.8; color: var(--color-200);">
-							为了优化在大屏端的交互体验，我们将导航栏移至<strong>左侧浮动区域</strong>。这一改动释放了底部视觉压力，使灵感记录过程更加沉浸且无遮挡。
+							为了优化在大屏端的交互体验，我们将导航栏从底部移至<strong>左侧浮动区域</strong>。这一改动释放了底部视觉压力，使灵感记录过程更加沉浸且无遮挡。
 						</p>
 					</div>
 					<div>
@@ -30,25 +30,28 @@ import SectionHeader from "../../components/SectionHeader.astro";
 					</div>
 				</div>
 				
-				<div class="lingmu-standalone-window">
-					<div class="window-controls">
-						<div class="window-dots"><span></span><span></span><span></span></div>
-						<span class="window-title">LingMu Live Prototype (Sidebar Mode)</span>
-					</div>
-					<div class="window-body">
-						<iframe 
-							src="https://lingmu-app.vercel.app" 
-							style="border: none; width: 100%; height: 100%; background: #000;" 
-							allowfullscreen>
-						</iframe>
+				<div class="pure-embed-viewport">
+					<div class="clean-iframe-window">
+						<div class="window-bar">
+							<div class="dots"><span></span><span></span><span></span></div>
+							<span class="url">lingmu-app.vercel.app</span>
+						</div>
+						<div class="iframe-box">
+							<iframe 
+								src="https://lingmu-app.vercel.app" 
+								style="border: none; width: 100%; height: 100%;" 
+								allowfullscreen>
+							</iframe>
+						</div>
 					</div>
 				</div>
 
-				<p style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: var(--color-500); font-style: italic;">
-					💡 提示：请点击左侧悬浮图标进行页面切换，内部内容可自由滑动。
+				<p style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--color-500); font-style: italic;">
+					💡 提示：本窗口已启用左侧悬浮导航，你可以直接点击进行交互体验。
 				</p>
 			</div>
 		</section>
+		
 		<div style="height: 100px;"></div>
 	</main>
 </BaseLayout>
@@ -60,11 +63,21 @@ import SectionHeader from "../../components/SectionHeader.astro";
 		padding: 0 var(--pad-inner);
 	}
 
-	.lingmu-standalone-window {
+	/* 1. 外层：负责撑开宽度和上下 breathing 间距 */
+	.pure-embed-viewport {
 		width: 100%;
-		height: 750px; /* 给予足够的高度 */
+		display: flex;
+		justify-content: center;
+		padding: 20px 0;
+	}
+
+	/* 2. 容器：彻底删除手机比例锁，不再限制宽度，给予 80vh 的沉浸式高度 */
+	.clean-iframe-window {
+		width: 100%;
+		height: 80vh; /* 撑开高度，确保侧边栏在视野正中 */
+		min-height: 600px;
 		background: #000;
-		border-radius: 16px;
+		border-radius: 12px;
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
@@ -72,25 +85,33 @@ import SectionHeader from "../../components/SectionHeader.astro";
 		box-shadow: 0 40px 100px rgba(0,0,0,0.5);
 	}
 
-	.window-controls {
-		height: 42px;
+	/* 3. 模拟系统顶部小条，增加高级感 */
+	.window-bar {
+		height: 36px;
 		background: #1a1a1b;
 		display: flex;
 		align-items: center;
-		padding: 0 18px;
-		gap: 20px;
+		padding: 0 16px;
 		border-bottom: 1px solid #333;
+		gap: 12px;
 	}
 
-	.window-dots { display: flex; gap: 8px; }
-	.window-dots span { width: 10px; height: 10px; border-radius: 50%; background: #333; }
-	.window-title { font-size: 11px; color: #777; font-family: monospace; letter-spacing: 0.5px; }
+	.dots { display: flex; gap: 6px; }
+	.dots span { width: 8px; height: 8px; border-radius: 50%; background: #333; }
+	.url { font-size: 10px; color: #666; font-family: monospace; }
 
-	.window-body { flex: 1; width: 100%; height: 100%; }
+	/* 4. Iframe：填满剩余空间 */
+	.iframe-box {
+		flex: 1;
+		width: 100%;
+		background: #fff; /* iframe 加载前的白底 */
+	}
 
+	/* 适配小屏幕 */
 	@media (max-width: 767px) {
-		.lingmu-standalone-window {
-			height: 600px;
+		.clean-iframe-window {
+			height: 70vh;
+			min-height: 500px;
 		}
 	}
 </style>
