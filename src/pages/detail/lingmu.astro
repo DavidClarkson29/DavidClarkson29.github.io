@@ -15,32 +15,28 @@ import SectionHeader from "../../components/SectionHeader.astro";
 
 		<section class="border-top" style="padding-top: 3rem;">
 			<div class="content">
-				<div class="project-intro-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+				<div class="project-intro-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
 					<div>
-						<h3 style="margin-bottom: 1rem;">Design Concept</h3>
-						<p style="line-height: 1.8; color: var(--color-200);">
-							灵沐 (LingMu) 是一款基于 AI 辅助设计的原型，旨在探索<strong>“无阻碍记录”</strong>。通过极简的输入逻辑，将用户的碎片化思绪瞬间转化为结构化笔记。
+						<h3 style="margin-bottom: 0.5rem;">Design Concept</h3>
+						<p style="line-height: 1.6; color: var(--color-200);">
+							灵沐 (LingMu) 旨在探索<strong>“无阻碍记录”</strong>。通过极简输入逻辑，将碎片思绪转化为结构化笔记。
 						</p>
 					</div>
 					<div>
-						<h3 style="margin-bottom: 1rem;">Tech Stack</h3>
-						<p style="line-height: 1.8; color: var(--color-200);">
-							本项目采用 <strong>Vite + React + Tailwind CSS</strong> 构建，并通过 Vercel 自动化部署，实现了从设计原型到生产级代码的高速转化。
+						<h3 style="margin-bottom: 0.5rem;">Tech Stack</h3>
+						<p style="line-height: 1.6; color: var(--color-200);">
+							由 <strong>Vite + React</strong> 构建并部署于 Vercel，确保了 100% 的真实交互还原。
 						</p>
 					</div>
 				</div>
 				
-				<div class="fullscreen-demo-wrapper">
-					<div class="demo-window">
-						<div class="window-header">
-							<div class="dot-group">
-								<span class="dot"></span>
-								<span class="dot"></span>
-								<span class="dot"></span>
-							</div>
-							<span class="window-title">Live Prototype - https://lingmu-app.vercel.app</span>
+				<div class="demo-viewport">
+					<div class="app-container">
+						<div class="browser-bar">
+							<div class="dots"><span></span><span></span><span></span></div>
+							<span class="url">lingmu-app.vercel.app</span>
 						</div>
-						<div class="iframe-container">
+						<div class="iframe-box">
 							<iframe 
 								src="https://lingmu-app.vercel.app" 
 								style="border: none; width: 100%; height: 100%;" 
@@ -48,13 +44,12 @@ import SectionHeader from "../../components/SectionHeader.astro";
 							</iframe>
 						</div>
 					</div>
-					<p class="demo-hint" style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--color-500); font-style: italic;">
-						💡 本窗口为实时运行的 App 实例，可直接点击进行交互体验。
-					</p>
 				</div>
+				<p class="demo-hint">
+					💡 提示：本窗口已锁定 9:19 手机比例，可在内部自由滑动交互。
+				</p>
 			</div>
 		</section>
-		
 		<div style="height: 100px;"></div>
 	</main>
 </BaseLayout>
@@ -66,67 +61,66 @@ import SectionHeader from "../../components/SectionHeader.astro";
 		padding: 0 var(--pad-inner);
 	}
 
-	.fullscreen-demo-wrapper {
+	/* 1. 外层视口：负责上下间距和对齐 */
+	.demo-viewport {
 		width: 100%;
-		margin: 2rem 0;
+		display: flex;
+		justify-content: center;
+		padding: 20px 0;
+		background: #0f0f0f; /* 给背景一个深色，衬托 App */
+		border-radius: 20px;
 	}
 
-	/* 模拟一个高级的浏览器/系统窗口，而不是手机壳 */
-	.demo-window {
+	/* 2. 核心：锁定比例的 App 容器 */
+	.app-container {
 		width: 100%;
-		height: 85vh; /* 占据屏幕 85% 的高度 */
-		min-height: 700px;
+		max-width: 420px; /* 限制最大宽度，防止在大屏上过大 */
+		aspect-ratio: 9 / 19.5; /* 核心修复：锁定为长屏手机比例 */
 		background: #000;
-		border-radius: 12px;
+		border-radius: 32px;
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
-		border: 1px solid var(--border);
-		box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+		border: 6px solid #222;
+		box-shadow: 0 40px 100px rgba(0,0,0,0.6);
 	}
 
-	.window-header {
-		height: 40px;
+	/* 3. 模拟浏览器小条 */
+	.browser-bar {
+		height: 36px;
 		background: #1a1a1b;
 		display: flex;
 		align-items: center;
 		padding: 0 16px;
 		border-bottom: 1px solid #333;
-		gap: 16px;
+		gap: 12px;
 	}
 
-	.dot-group {
-		display: flex;
-		gap: 8px;
-	}
+	.dots { display: flex; gap: 6px; }
+	.dots span { width: 8px; height: 8px; border-radius: 50%; background: #333; }
+	.url { font-size: 10px; color: #666; font-family: monospace; }
 
-	.dot {
-		width: 10px;
-		height: 10px;
-		border-radius: 50%;
-		background: #444;
-	}
-
-	.window-title {
-		font-size: 12px;
-		color: #888;
-		font-family: monospace;
-	}
-
-	.iframe-container {
+	/* 4. Iframe 承载区：填满剩余空间 */
+	.iframe-box {
 		flex: 1;
 		width: 100%;
-		height: 100%;
-		background: #fff;
+		/* 确保底部不被切掉 */
+		padding-bottom: 0; 
 	}
 
+	.demo-hint {
+		text-align: center;
+		margin-top: 1.5rem;
+		font-size: 0.85rem;
+		color: var(--color-500);
+		font-style: italic;
+	}
+
+	/* 移动端适配 */
 	@media (max-width: 767px) {
-		.demo-window {
-			height: 75vh;
-			min-height: 500px;
-		}
-		.window-title {
-			display: none; /* 手机端隐藏长链接标题 */
+		.app-container {
+			max-width: 100%;
+			aspect-ratio: 9 / 18; /* 手机端稍微缩短一点比例 */
 		}
 	}
 </style>
