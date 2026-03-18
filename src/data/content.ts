@@ -156,10 +156,10 @@ export interface FilterItem {
 export const filterItems: FilterItem[] = [
 	{ content: "Featured", dataGroup: "recommend" },
 	{ content: "Industrial Design", dataGroup: "web" },
-	{ content: "UI", dataGroup: "ui" },
+	{ content: "UI/UX", dataGroup: "ui" },
 	{ content: "3D", dataGroup: "3d" },
 	{ content: "Photography", dataGroup: "photography" },
-	{ content: "Music Production", dataGroup: "brand" },
+	{ content: "Music", dataGroup: "brand" },
 ];
 
 
