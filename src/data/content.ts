@@ -18,10 +18,10 @@ interface Nav {
 export const nav: Nav = {
 	avatar:'/assets/author.jpg',
     items: [
-        { label: '首页', href: '/', target: '_self' },// target 为 '_blank' 打开新链接
-        { label: '项目', href: '/project', target: '_self' },
-        { label: '关于', href: '/about', target: '_self' },
-        { label: '博客', href: '/blog', target: '_self' },
+        { label: 'Home', href: '/', target: '_self' },// target 为 '_blank' 打开新链接
+        { label: 'Projects', href: '/project', target: '_self' },
+        { label: 'About Me', href: '/about', target: '_self' },
+        { label: 'Blog', href: '/blog', target: '_self' },
     ],
 };
 
