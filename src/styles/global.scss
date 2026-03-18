@@ -1033,3 +1033,22 @@ body {
     background-color: var(--color-divider);
     margin: var(--size-top, 64px) 0 var(--size-bottom, 64px);
 }
+
+/* 强制隐藏所有可能的鼠标跟随特效元素 */
+.cursor-follower, 
+.mouse-cursor, 
+#cursor, 
+.cursor,
+[data-cursor] {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* 恢复默认鼠标指针 */
+html, body, a, button {
+    cursor: auto !important;
+}
+a, button {
+    cursor: pointer !important;
+}
