@@ -11,7 +11,6 @@
     "date": "2025-11-30",
     "mark": true
   }
-  
   {
     "id": "2",
     "cover": "/assets/cover/lingmu-cover.jpg",
@@ -20,7 +19,7 @@
     "url": "",
     "detail": "/detail/lingmu",
     "category": "ui",
-    "tag": "UI/UX Design",
+    "tag": "UI/UX",
     "date": "2026-03-20",
     "mark": true
   },
