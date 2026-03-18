@@ -1033,25 +1033,3 @@ body {
     background-color: var(--color-divider);
     margin: var(--size-top, 64px) 0 var(--size-bottom, 64px);
 }
-
-/* --- 临时隐藏鼠标特效（保留功能逻辑，仅视觉隐藏） --- */
-.cursor-follower, 
-.mouse-cursor, 
-#cursor, 
-.cursor,
-[data-cursor],
-canvas {
-    display: none !important;
-    opacity: 0 !important;
-    pointer-events: none !important; /* 确保不干扰点击 */
-}
-
-/* 强制恢复系统默认鼠标指针 */
-html, body, a, button {
-    cursor: auto !important;
-}
-
-/* 保持链接仍有手型 */
-a, button {
-    cursor: pointer !important;
-}
