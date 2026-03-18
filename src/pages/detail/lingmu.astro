@@ -15,41 +15,35 @@ import SectionHeader from "../../components/SectionHeader.astro";
 
 		<section class="border-top" style="padding-top: 3rem;">
 			<div class="content">
-				<div class="project-intro-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+				<div class="project-intro-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
 					<div>
-						<h3 style="margin-bottom: 0.5rem;">Design Concept</h3>
-						<p style="line-height: 1.6; color: var(--color-200);">
+						<h3 style="margin-bottom: 0.8rem;">Design Concept</h3>
+						<p style="line-height: 1.8; color: var(--color-200);">
 							灵沐 (LingMu) 旨在探索<strong>“无阻碍记录”</strong>。通过极简输入逻辑，将碎片思绪转化为结构化笔记。
 						</p>
 					</div>
 					<div>
-						<h3 style="margin-bottom: 0.5rem;">Tech Stack</h3>
-						<p style="line-height: 1.6; color: var(--color-200);">
+						<h3 style="margin-bottom: 0.8rem;">Tech Stack</h3>
+						<p style="line-height: 1.8; color: var(--color-200);">
 							由 <strong>Vite + React</strong> 构建并部署于 Vercel，确保了 100% 的真实交互还原。
 						</p>
 					</div>
 				</div>
 				
-				<div class="demo-viewport">
-					<div class="app-container">
-						<div class="browser-bar">
-							<div class="dots"><span></span><span></span><span></span></div>
-							<span class="url">lingmu-app.vercel.app</span>
-						</div>
-						<div class="iframe-box">
-							<iframe 
-								src="https://lingmu-app.vercel.app" 
-								style="border: none; width: 100%; height: 100%;" 
-								allowfullscreen>
-							</iframe>
-						</div>
-					</div>
+				<div class="pure-embed-container">
+					<iframe 
+						src="https://lingmu-app.vercel.app" 
+						class="full-height-iframe"
+						allowfullscreen>
+					</iframe>
 				</div>
-				<p class="demo-hint">
-					💡 提示：本窗口已锁定 9:19 手机比例，可在内部自由滑动交互。
+
+				<p style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: var(--color-500); font-style: italic;">
+					💡 提示：以上为实时交互原型，可直接操作。
 				</p>
 			</div>
 		</section>
+		
 		<div style="height: 100px;"></div>
 	</main>
 </BaseLayout>
@@ -61,66 +55,33 @@ import SectionHeader from "../../components/SectionHeader.astro";
 		padding: 0 var(--pad-inner);
 	}
 
-	/* 1. 外层视口：负责上下间距和对齐 */
-	.demo-viewport {
+	/* 1. 容器：彻底去掉背景和边框，居中显示 */
+	.pure-embed-container {
 		width: 100%;
-		display: flex;
-		justify-content: center;
-		padding: 20px 0;
-		background: #0f0f0f; /* 给背景一个深色，衬托 App */
-		border-radius: 20px;
+		max-width: 450px; /* 限制手机端的最大显示宽度 */
+		margin: 0 auto;
+		display: block;
+		position: relative;
+		/* 关键：利用 aspect-ratio 确保高度随宽度变化，不裁切底部 */
+		aspect-ratio: 9 / 19; 
 	}
 
-	/* 2. 核心：锁定比例的 App 容器 */
-	.app-container {
+	/* 2. Iframe：完全透明嵌入 */
+	.full-height-iframe {
 		width: 100%;
-		max-width: 420px; /* 限制最大宽度，防止在大屏上过大 */
-		aspect-ratio: 9 / 19.5; /* 核心修复：锁定为长屏手机比例 */
-		background: #000;
-		border-radius: 32px;
-		display: flex;
-		flex-direction: column;
-		overflow: hidden;
-		border: 6px solid #222;
-		box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+		height: 100%;
+		border: none;
+		display: block;
+		background: transparent;
+		/* 移除所有阴影和边框 */
+		box-shadow: none;
 	}
 
-	/* 3. 模拟浏览器小条 */
-	.browser-bar {
-		height: 36px;
-		background: #1a1a1b;
-		display: flex;
-		align-items: center;
-		padding: 0 16px;
-		border-bottom: 1px solid #333;
-		gap: 12px;
-	}
-
-	.dots { display: flex; gap: 6px; }
-	.dots span { width: 8px; height: 8px; border-radius: 50%; background: #333; }
-	.url { font-size: 10px; color: #666; font-family: monospace; }
-
-	/* 4. Iframe 承载区：填满剩余空间 */
-	.iframe-box {
-		flex: 1;
-		width: 100%;
-		/* 确保底部不被切掉 */
-		padding-bottom: 0; 
-	}
-
-	.demo-hint {
-		text-align: center;
-		margin-top: 1.5rem;
-		font-size: 0.85rem;
-		color: var(--color-500);
-		font-style: italic;
-	}
-
-	/* 移动端适配 */
+	/* 移动端适配：如果是手机访问，直接占满宽度 */
 	@media (max-width: 767px) {
-		.app-container {
+		.pure-embed-container {
 			max-width: 100%;
-			aspect-ratio: 9 / 18; /* 手机端稍微缩短一点比例 */
+			aspect-ratio: 9 / 18.5; /* 稍微调整移动端的比例 */
 		}
 	}
 </style>
