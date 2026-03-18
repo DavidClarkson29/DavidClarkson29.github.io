@@ -1,1 +1,79 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+---
 
+<BaseLayout title="LingMu UI/UX Prototype | Baichuan Wang">
+	<main class="post-wrapper project-detail">
+		<SectionHeader 
+			tag="UI/UX / MOBILE DESIGN" 
+			description="Interactive Prototype: An ergonomic approach to digital note-taking.">
+			<h1 class="font-special text-5xl font-bold uppercase tracking-widest" style="margin: 1rem 0;">
+				LingMu (灵沐)
+			</h1>
+		</SectionHeader>
+
+		<section class="border-top" style="padding-top: 3rem;">
+			<div class="content">
+				<div class="project-intro" style="margin-bottom: 2.5rem;">
+					<p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-200);">
+						这是我正在进行中的一款专为捕捉灵感设计的笔记应用。核心理念是<strong>“极简交互”</strong>与<strong>“低认知负荷”</strong>，旨在帮助用户在思绪闪现的瞬间快速记录。
+					</p>
+				</div>
+				
+				<div class="figma-presentation-container">
+					<div class="figma-frame">
+						<iframe 
+							style="border: none;" 
+							width="100%" 
+							height="100%" 
+							src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/make/6VAMNv6n0C2jsT70SD8KSu/%E6%98%BC%E5%A4%9C%E7%81%B5%E6%84%9F%E8%AE%B0%E4%BA%8B%E6%9C%AC%E8%AE%BE%E8%AE%A1?t=z9oiSzDDVDc8ISZa-1" 
+							allowfullscreen>
+						</iframe>
+					</div>
+					<p class="figma-hint" style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--color-400); font-style: italic;">
+						💡 提示：你可以直接在上方窗口中点击按钮进行交互演示
+					</p>
+				</div>
+			</div>
+		</section>
+		
+		<div style="height: 120px;"></div> </main>
+</BaseLayout>
+
+<style>
+	.project-detail {
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: 0 var(--pad-inner);
+	}
+
+	.figma-presentation-container {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 1rem;
+	}
+
+	.figma-frame {
+		width: 100%;
+		/* 80% 的屏幕高度，提供沉浸式体验 */
+		height: 80vh; 
+		min-height: 650px;
+		background: #121212; /* 匹配你设计的深色主题 */
+		border-radius: 20px;
+		overflow: hidden;
+		box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+		border: 1px solid var(--border);
+	}
+
+	/* 适配小屏幕 */
+	@media (max-width: 767px) {
+		.figma-frame {
+			height: 75vh;
+			min-height: 550px;
+			border-radius: 12px;
+		}
+	}
+</style>
