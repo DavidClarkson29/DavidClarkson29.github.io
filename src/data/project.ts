@@ -9,34 +9,21 @@ export interface ProjectItem {
 	tags?: string[]
 	cover?: string[]
 }
+
+// 这样设置为空数组 []，首页就会完全清空
 export const projectItems: ProjectItem[] = [
+	/* 💡 以后想添加内容时，取消下面的注释（删除 /* 和 */ ）即可。
+	   你也可以复制这个大括号 {} 块来增加更多项目。
+
 	{
-		title: "[示例] 3D 图标资产 - 情人节",
-    title_en: "Valentine's Day 3D Assets",
-		date: "2023-10-15",
-    detail: "/detail/free-3d-valentines-assets/",
-    url: "https://web.606design.art/landings/004-free-3d-valentines-assets/",
-    cover: ['free-3d-valentines-assets/01.jpg','free-3d-valentines-assets/02.jpg','free-3d-valentines-assets/03.jpg','free-3d-valentines-assets/04.jpg',],
-		tags: ['3D', 'WEB', 'ICON']
-	},
-  {
-		title: "[示例] 待办清单网页版",
-    title_en: "Online Todo List",
-		date: "2023-10-15",
-    detail: "/detail/todo",
-    url: "https://www.ricocc.com/todo/",
-    cover: ['cover/cover-todo.jpg'],
-		tags: ['WEB', 'UI', 'TODO']
-	},
-  {
-		title: "[示例] Tink 旅行生活日记",
-    title_en: "AI Landing Page",
-		date: "2023-10-15",
-		url: "https://travellife.zeabur.app/",
-		detail: "/detail/tinklife",
-    cover: ['travel/01.jpg','travel/02.jpg','travel/03.jpg','travel/04.jpg'],
-		tags: ['WEB', 'MOBILE']
-	},
-
+		title: "人体工学机械键盘设计",
+		title_en: "Ergonomic Mechanical Keyboard Design",
+		description: "An ergonomic wireless mechanical keyboard design, optimizing user workflow and comfort.",
+		date: "2026-03-18",
+		detail: "/detail/keyboard",
+		url: "",
+		cover: ['cover/Keyboard Design-cover.jpg'],
+		tags: ['Industrial Design', 'Strategy', 'CMF']
+	}, 
+	*/
 ];
-
